@@ -1,0 +1,116 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Scriggo",
+	"patterns": [
+
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.Sriggo",
+					"match": "\\b(if|else|for|and|extends|not|render|contains|in|or|show|end|macro|raw|using)\\b"
+				},
+				{
+					"name": "meta.function.Sriggo",
+					"begin": "\\{\\%\\s*(\\w+)\\s+(\\w+)\\s*\\(",
+					"beginCaptures": {
+					  "1": { "name": "keyword.control.functiontype.Sriggo" },
+					  "2": { "name": "entity.name.function.Sriggo" }
+					},
+					"end": "\\)\\s*\\%\\}",
+					"patterns": [
+					  {
+						"name": "variable.parameter.Sriggo",
+						"match": "(\\w+)\\s+(string|int)",
+						"captures": {
+						  "1": { "name": "variable.parameter.name.Sriggo" },
+						  "2": { "name": "storage.type.Sriggo" }
+						}
+					  }
+					]
+				},
+				{
+					"name": "meta.template.block.with-params.Sriggo",
+					"begin": "\\{\\%\\s*(\\w+)\\s+(\\w+)\\s*\\(([^)]*)\\)\\s*\\%\\}",
+					"beginCaptures": {
+						"1": { "name": "keyword.control.templateblock.Sriggo" },
+						"2": { "name": "entity.name.function.Sriggo" },
+						"3": {
+						"name": "meta.function.parameters.Sriggo",
+						"patterns": [
+							{
+							"match": "\\b(\\w+)\\b",
+							"name": "variable.parameter.name.Sriggo"
+							}
+						]
+						}
+					},
+					"end": "\\{\\%\\s*end\\s*\\%\\}",
+					"endCaptures": {
+						"0": { "name": "keyword.control.templateblock.end.Sriggo" }
+					}
+				},
+				{
+					"name": "meta.template.block.no-params.Sriggo",
+					"begin": "\\{\\%\\s*(\\w+)\\s+(\\w+)\\s*\\%\\}",
+					"beginCaptures": {
+						"1": { "name": "keyword.control.templateblock.Sriggo" },
+						"2": { "name": "entity.name.function.Sriggo" }
+					},
+					"end": "\\{\\%\\s*end\\s*\\%\\}",
+					"endCaptures": {
+						"0": { "name": "keyword.control.templateblock.end.Sriggo" }
+					}
+				},
+				{
+					"name": "meta.variable.assignment.Sriggo",
+					"match": "\\b(var)\\s+(\\w+)\\s*(=)\\s*(\"[^\"]*\"|'[^']*'|\\d+(?:\\.\\d+)?)",
+					"captures": {
+					"1": {
+						"name": "storage.type.variable.Sriggo"     
+					},
+					"2": {
+						"name": "variable.other.readwrite.Sriggo"    
+					},
+					"3": {
+						"name": "keyword.operator.assignment.Sriggo"
+					},
+					"4": {
+						"name": "constant.numeric.Sriggo" 
+					}
+					}
+				},
+
+				{
+					"name": "keyword.control.Sriggo",
+					"match": "\\b(if|else)\\b"
+				},
+				{
+					"name": "variable.other.readwrite.Sriggo",
+					"match": "\\b[a-zA-Z_]\\w*\\b"
+				},
+				{
+					"name": "keyword.operator.comparison.Sriggo",
+					"match": "<|<=|>|>=|==|!="
+				},
+				{
+					"name": "constant.numeric.Sriggo",
+					"match": "\\b\\d+(?:\\.\\d+)?\\b"
+				},
+				{
+					"name": "string.quoted.double.Sriggo",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+						"match": "\\\\.",
+						"name": "constant.character.escape.Sriggo"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "source.scriggo"
+}

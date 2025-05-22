@@ -1,0 +1,31 @@
+{
+  "name": "scriggo-highlight",
+  "displayName": "ScriggoHighlight",
+  "description": "Scriggo highlight",
+  "version": "0.0.0",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "HTML",
+      "aliases": ["HTML", "HTML"],
+      "extensions": [
+        ".html",
+        ".htm",
+        ".shtml",
+        ".xhtml",
+        ".scriggo"
+      ],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "HTML",
+      "scopeName": "source.scriggo",
+      "path": "./syntaxes/HTML.tmLanguage.json"
+    }]
+  }
+}

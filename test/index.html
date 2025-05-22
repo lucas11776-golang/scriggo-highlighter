@@ -1,0 +1,17 @@
+{% extends "/layouts/main.html" %}
+
+{% macro Title %}Awesome product{% end %}
+
+
+{% macro image(url string, width int, height int) %}
+  <img src="{{ url }}" width="{{ width }}" height="{{ height }}">
+{% end %}
+
+{%%
+  var value = 55
+  if value < 100 {
+      show "value is ", value
+  } else {
+      show "too large"
+  }
+%%}
