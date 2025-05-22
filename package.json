@@ -1,7 +1,7 @@
 {
   "name": "scriggo-highlighter",
   "displayName": "Scriggo Highlighter",
-  "description": "Scriggo highlight",
+  "description": "Scriggo highlighter",
   "version": "0.0.0",
   "publisher": "Lucas11776",
   "license": "MIT",
@@ -80,6 +80,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/vscode.git"
+    "url": "https://github.com/lucas11776-golang/scriggo-highlighter"
   }
 }
