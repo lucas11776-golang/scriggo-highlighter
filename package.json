@@ -1,31 +1,85 @@
 {
-  "name": "scriggo-highlight",
-  "displayName": "ScriggoHighlight",
+  "name": "scriggo-highlighter",
+  "displayName": "Scriggo Highlighter",
   "description": "Scriggo highlight",
   "version": "0.0.0",
+  "publisher": "Lucas11776",
+  "license": "MIT",
   "engines": {
-    "vscode": "^1.100.0"
+    "vscode": "0.10.x"
   },
-  "categories": [
-    "Programming Languages"
-  ],
+  "scripts": {
+    "update-grammar": "node ./build/update-grammar.mjs"
+  },
+  "categories": ["Visualization"],
   "contributes": {
-    "languages": [{
-      "id": "HTML",
-      "aliases": ["HTML", "HTML"],
-      "extensions": [
-        ".html",
-        ".htm",
-        ".shtml",
-        ".xhtml",
-        ".scriggo"
-      ],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "HTML",
-      "scopeName": "source.scriggo",
-      "path": "./syntaxes/HTML.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "html",
+        "extensions": [
+          ".html",
+          ".htm",
+          ".shtml",
+          ".xhtml",
+          ".xht",
+          ".scriggo"
+        ],
+        "aliases": [
+          "HTML",
+          "htm",
+          "html",
+          "xhtml"
+        ],
+        "mimetypes": [
+          "text/html",
+          "text/x-jshtm",
+          "text/template",
+          "text/ng-template",
+          "application/xhtml+xml"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "scopeName": "text.html.basic",
+        "path": "./syntaxes/html.tmLanguage.json",
+        "embeddedLanguages": {
+          "text.html": "html",
+          "source.css": "css",
+          "source.js": "javascript",
+          "source.python": "python",
+          "source.smarty": "smarty"
+        },
+        "tokenTypes": {
+          "meta.tag string.quoted": "other"
+        }
+      },
+      {
+        "language": "html",
+        "scopeName": "text.html.derivative",
+        "path": "./syntaxes/html-derivative.tmLanguage.json",
+        "embeddedLanguages": {
+          "text.html": "html",
+          "source.css": "css",
+          "source.js": "javascript",
+          "source.python": "python",
+          "source.smarty": "smarty"
+        },
+        "tokenTypes": {
+          "meta.tag string.quoted": "other"
+        }
+      }
+    ],
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./snippets/html.code-snippets"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
   }
 }
