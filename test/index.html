@@ -1,16 +1,29 @@
-{% extends "/layouts/main.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
 
-{% macro Title %}Awesome product{% end %}
+  {% extends "/layouts/main.html" %}
 
-{% macro image(url string, width int, height int) %}
-  <img src="{{ url }}" width="{{ width }}" height="{{ height }}">
-{% end %}
+  {% macro Title %}Awesome product{% end %}
 
-{%%
-  var value = 55
-  if value < 100 {
-      show "value is ", value
-  } else {
-      show "too large"
-  }
-%%}
+
+  {% macro image(url string, width int, height int) %}
+    <img src="{{ url }}" width="{{ width }}" height="{{ height }}">
+  {% end %}
+
+  {%%
+    var value = 55
+    if value < 100 {
+        show "value is ", value
+    } else {
+        show "too large"
+    }
+  %%}
+  
+</body>
+</html>
